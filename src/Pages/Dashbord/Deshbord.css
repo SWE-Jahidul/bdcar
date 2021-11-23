@@ -1,0 +1,11 @@
+.nav-item a {
+    color: white;
+}
+
+.nav-item a:hover {
+    color: #EF5E24;
+}
+
+i {
+    margin-left: 10px;
+}

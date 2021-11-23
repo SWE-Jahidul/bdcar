@@ -1,0 +1,41 @@
+.footer {
+    background-color: #1c1c1c;
+    position: "fixed";
+    left: "0";
+    bottom: "0";
+    color: white;
+  }
+  
+  .social-icons-f {
+    height: 45.6px;
+    width: 45.6px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .social-icons-f i {
+    color: rgb(255, 255, 255) !important;
+  }
+  
+  .social-icons-f i:hover {
+    color: rgb(0, 171, 21) !important;
+  }
+  
+  .fixed-bottom1 {
+    position: fixed;
+    right: 5%;
+    bottom: 7%;
+    z-index: 1030;
+    background-color: #da984d;
+  }
+  
+  h5 {
+    color: rgb(255, 255, 255);
+    font-weight: bolder !important;
+  }
+  
+  .con1 h5, p {
+    text-align: left !important;
+  }
