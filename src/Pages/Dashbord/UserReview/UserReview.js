@@ -9,16 +9,18 @@ const UserReview = () => {
   const { user } = useAuth();
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("https://shrouded-harbor-84354.herokuapp.com/reviews", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("added review successfully");
-        reset();
-      }
-    });
+    axios
+      .post("https://shrouded-harbor-84354.herokuapp.com/reviews", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("added review successfully");
+          reset();
+        }
+      });
   };
   return (
     <div className="container " style={{ marginTop: 100 }}>
-      <div className="row mt-5">
+      <div className="row  mt-5">
         <div className="col-lg-6 col-md-6 col-12">
           <div class="card text-center">
             <div class="card-body">
@@ -66,8 +68,6 @@ const UserReview = () => {
             </div>
           </div>
         </div>
-    
-    
       </div>
     </div>
   );
