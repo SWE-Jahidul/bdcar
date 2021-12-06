@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 const HomeProduct = () => {
   const [products, setProducts] = useState([]);
@@ -22,6 +23,13 @@ const HomeProduct = () => {
           {" "}
           Products{" "}
         </h3>
+        <Loader
+        type="Puff"
+        color="#EF5E24"
+        height={50}
+        width={50}
+        timeout={2000} //3 secs
+      />
 
         {products.slice(0, 6).map((pd) => (
           <div className="col-md-4">

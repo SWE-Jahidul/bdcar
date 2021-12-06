@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Footer from "../../../Shared/Footer/Footer";
 import Navbar from "../../../Shared/Navbar/Navbar";
 
+import Loader from "react-loader-spinner";
+
+
 const AllNews = () => {
   const [newss, setNewss] = useState([]);
 
@@ -27,6 +30,14 @@ const AllNews = () => {
           {" "}
           All News
         </h3>
+
+        <Loader
+        type="Puff"
+        color="#EF5E24"
+        height={50}
+        width={50}
+        timeout={2500} //3 secs
+      />
 
         {newss?.map((ns) => (
           <div className="row py-3">
