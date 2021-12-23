@@ -40,19 +40,28 @@ const ProductDisplay = (props) => {
     // alert("Delete Successfully");
   };
   return (
-      <tr className="text-white"style={{margin:20}}>
-        <td className="text-white mx-5">{title}</td>
-        
-        <td className="mx-5">
-          {/* <button style={{ backgroundColor:'#EF5E24', border:0}} onClick={() => handleDelete(_id)}> <i class="fas fa-dolly"></i> Shipping</button> */}
-          <button
-            style={{ backgroundColor: "#EF5E24", border: 0 }}
-            onClick={() => handleDelete(_id)}
-          >
-            <i class="fas fa-trash-alt"></i> Delete
-          </button>
-        </td>
-      </tr>
+
+
+   <> 
+   
+
+<tr className="text-white"style={{margin:20}}>
+
+
+<td className="text-white mx-5">{title}</td>
+
+<td className="mx-5">
+  {/* <button style={{ backgroundColor:'#EF5E24', border:0}} onClick={() => handleDelete(_id)}> <i class="fas fa-dolly"></i> Shipping</button> */}
+  <button
+    style={{ backgroundColor: "#EF5E24", border: 0 }}
+    onClick={() => handleDelete(_id)}
+  >
+    <i class="fas fa-trash-alt"></i> Delete
+  </button>
+</td>
+</tr>
+   </>
+     
   );
 };
 

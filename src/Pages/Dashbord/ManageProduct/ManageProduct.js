@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductDisplay from "./ProductDispaly/ProductDisplay";
+import Loader from "react-loader-spinner";
+
 
 const ManageProduct = () => {
   const [product, setProduct] = useState();
@@ -15,7 +17,16 @@ const ManageProduct = () => {
   return (
     <div>
       <h1 className="text-white">Manage Product</h1>
+      <Loader
+    type="Puff"
+    color="#EF5E24"
+    height={50}
+    width={50}
+    timeout={1000} //1 secs
+  />
       <table class="table table-striped text-white">
+        
+   
         <thead>
           <tr className="text-white">
             <th className="text-white" scope="col">
@@ -27,6 +38,8 @@ const ManageProduct = () => {
             </th>
           </tr>
         </thead>
+        
+  
         <tbody className="" >
          
             {product?.map((item) => (
