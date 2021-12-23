@@ -18,6 +18,8 @@ import Addnews from "./AddNews/Addnews";
 import MyOrder from "./MyOrder/MyOrder";
 import UserReview from "./UserReview/UserReview";
 
+import ManageProduct from "./ManageProduct/ManageProduct";
+
 const Dashbord = () => {
   let { path, url } = useRouteMatch();
   const { admin, logOut } = useAuth();
@@ -133,6 +135,21 @@ const Dashbord = () => {
                 </NavLink>
               )}
 
+              {admin ? (
+                <NavLink to={`${url}/manageproducts`}>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#">
+                      <i class="fas fa-plus"></i>{" "}
+                      <span className="ml-1 d-none d-sm-inline">
+                        Display Product
+                      </span>
+                    </a>
+                  </li>
+                </NavLink>
+              ) : (
+                <></>
+              )}
+
               <NavLink to={`${url}/myorder`}>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
@@ -142,17 +159,18 @@ const Dashbord = () => {
                 </li>
               </NavLink>
 
-              {admin ? ( <NavLink to={`${url}/news`}>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    <i class="fas fa-plus"></i>{" "}
-                    <span className="ml-1 d-none d-sm-inline">Add News</span>
-                  </a>
-                </li>
-              </NavLink>
-              ) : ( 
+              {admin ? (
+                <NavLink to={`${url}/news`}>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#">
+                      <i class="fas fa-plus"></i>{" "}
+                      <span className="ml-1 d-none d-sm-inline">Add News</span>
+                    </a>
+                  </li>
+                </NavLink>
+              ) : (
                 <> </>
-              ) }
+              )}
             </ul>
           </div>
           <div className="col py-3">
@@ -170,6 +188,11 @@ const Dashbord = () => {
               <AdminRoute path={`${path}/manageorder`}>
                 <ManageOrder></ManageOrder>
               </AdminRoute>
+
+              <AdminRoute path={`${path}/manageproducts`}>
+                <ManageProduct></ManageProduct>
+              </AdminRoute>
+
               <AdminRoute path={`${path}/news`}>
                 <Addnews></Addnews>
               </AdminRoute>
