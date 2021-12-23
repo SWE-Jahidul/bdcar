@@ -14,7 +14,7 @@ const ManageProduct = () => {
 
   return (
     <div>
-      <h1 className="text-white">Manage Order</h1>
+      <h1 className="text-white">Manage Product</h1>
       <table class="table table-striped text-white">
         <thead>
           <tr className="text-white">
@@ -27,12 +27,11 @@ const ManageProduct = () => {
             </th>
           </tr>
         </thead>
-        <tbody>
-          {product?.map((item) => (
-            <ProductDisplay key={item._id} item={item}>
-            
-            </ProductDisplay>
-          ))}
+        <tbody className="" >
+         
+            {product?.map((item) => (
+              <ProductDisplay key={item._id} item={item}></ProductDisplay>
+            ))}
         </tbody>
       </table>
     </div>

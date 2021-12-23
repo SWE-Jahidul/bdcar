@@ -33,17 +33,17 @@ const ProductDisplay = (props) => {
 
         if (data.deletedCount) {
           alert("Delete Successfully");
-          const remaining = product.filter((item) => item._id !== id);
+          const remaining = product.filter((item) => item._id == id);
           setProduct(remaining);
         }
       });
-    alert("Delete Successfully");
+    // alert("Delete Successfully");
   };
   return (
-    <div>
-      <tr className="text-white">
-        <td className="text-white">{title}</td>
-        <td className="ms-2">
+      <tr className="text-white"style={{margin:20}}>
+        <td className="text-white mx-5">{title}</td>
+        
+        <td className="mx-5">
           {/* <button style={{ backgroundColor:'#EF5E24', border:0}} onClick={() => handleDelete(_id)}> <i class="fas fa-dolly"></i> Shipping</button> */}
           <button
             style={{ backgroundColor: "#EF5E24", border: 0 }}
@@ -53,7 +53,6 @@ const ProductDisplay = (props) => {
           </button>
         </td>
       </tr>
-    </div>
   );
 };
 
