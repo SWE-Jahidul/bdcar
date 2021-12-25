@@ -32,6 +32,9 @@ const ManageProduct = () => {
             <th className="text-white" scope="col">
               Title
             </th>
+            <th className="text-white" scope="col">
+              Adding Date of Product  
+            </th>
 
             <th className="text-white" scope="col">
               Action

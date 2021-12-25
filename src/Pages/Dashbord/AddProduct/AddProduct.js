@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DatePicker from "react-date-picker";
 
 const AddProduct = () => {
   const [title, setTitle] = useState("");
@@ -12,7 +13,10 @@ const AddProduct = () => {
   const [details, setdetails] = useState("");
   const [Specification, setSpecfication] = useState("");
 
-  const [feture , setFeture ] = useState("");
+  const [feture, setFeture] = useState("");
+
+  const [valueDate, onChange] = useState(new Date());
+
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -53,10 +57,9 @@ const AddProduct = () => {
     setdetails(e.target.value);
   };
 
-
   const handelFeture = (e) => {
     setFeture(e.target.value);
-  }
+  };
   const handelevent = () => {
     const data = {
       title,
@@ -69,7 +72,8 @@ const AddProduct = () => {
       engine,
       details,
       Specification,
-      feture
+      feture,
+      valueDate,
     };
 
     fetch("https://shrouded-harbor-84354.herokuapp.com/products", {
@@ -213,7 +217,6 @@ const AddProduct = () => {
                   />
                 </div>
 
-
                 <div className="form-group my-4">
                   <input
                     type="text"
@@ -225,17 +228,22 @@ const AddProduct = () => {
                     placeholder="Fetures (must be after one feture useing comma) "
                   />
                 </div>
-
-
-
+                <div className="form-group my-4">
+                  <DatePicker
+                    className="form-control"
+                    onChange={onChange}
+                    value={valueDate}
+                    // disabled
+                  />
+                </div>
               </div>
             </div>
 
             <button
-             style={{
-              backgroundColor: "#EF5E24",
-              border: 0,
-            }}
+              style={{
+                backgroundColor: "#EF5E24",
+                border: 0,
+              }}
               onClick={handelevent}
               className="button-read-more text-white"
               data-aos="fade-right"

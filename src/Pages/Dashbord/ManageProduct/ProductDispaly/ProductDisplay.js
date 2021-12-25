@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const ProductDisplay = (props) => {
   const [product, setProduct] = useState();
-  const { _id, title } = props.item;
+  const { _id, title,valueDate } = props.item;
   useEffect(() => {
     fetch("http://localhost:5000/products/")
       .then((res) => res.json())
@@ -49,6 +49,9 @@ const ProductDisplay = (props) => {
 
 
 <td className="text-white mx-5">{title}</td>
+
+<td className="text-white mx-5">{valueDate}</td>
+
 
 <td className="mx-5">
   {/* <button style={{ backgroundColor:'#EF5E24', border:0}} onClick={() => handleDelete(_id)}> <i class="fas fa-dolly"></i> Shipping</button> */}
