@@ -125,7 +125,7 @@ const Contact = () => {
                 <textarea
                   class="form-control"
                   placeholder="Enter Messages"
-                  //   onChange={handelMessages}
+                  //  onChange={handelMessages}
                   id="exampleFormControlTextarea1"
                   rows="3"
                 ></textarea>
@@ -135,7 +135,7 @@ const Contact = () => {
                     <input
                       type="text"
                       class="form-control"
-                      //   onChange={hadelname}
+                      //  onChange={hadelname}
                       placeholder="Enter Name "
                     />
                   </div>
@@ -143,7 +143,7 @@ const Contact = () => {
                     <input
                       type="text"
                       class="form-control"
-                      //   onChange={handelemail}
+                        //  onChange={handelemail}
                       placeholder="Enter Email"
                     />
                   </div>

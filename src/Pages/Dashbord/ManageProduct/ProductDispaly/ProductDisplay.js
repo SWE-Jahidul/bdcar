@@ -39,6 +39,11 @@ const ProductDisplay = (props) => {
       });
     // alert("Delete Successfully");
   };
+
+
+  const handleUpdate = (id) =>{
+
+  }
   return (
 
 
@@ -60,6 +65,14 @@ const ProductDisplay = (props) => {
     onClick={() => handleDelete(_id)}
   >
     <i class="fas fa-trash-alt"></i> Delete
+  </button>
+
+
+  <button
+    style={{ backgroundColor: "#EF5E24", border: 0 }}
+    onClick={() => handleUpdate(_id)}
+  >
+   <i class="fas fa-pencil-alt"></i> Udate 
   </button>
 </td>
 </tr>
