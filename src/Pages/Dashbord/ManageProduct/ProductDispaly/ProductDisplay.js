@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const ProductDisplay = (props) => {
   const [product, setProduct] = useState();
-  const { _id, title,valueDate } = props.item;
+  const { _id, title, valueDate } = props.item;
   useEffect(() => {
     fetch("http://localhost:5000/products/")
       .then((res) => res.json())
@@ -40,44 +40,32 @@ const ProductDisplay = (props) => {
     // alert("Delete Successfully");
   };
 
-
-  const handleUpdate = (id) =>{
-
-  }
+  const handleUpdate = (id) => {};
   return (
+    <>
+      <tr className="text-white" style={{ margin: 20 }}>
+        <td className="text-white mx-5">{title}</td>
 
+        <td className="text-white mx-5">{valueDate}</td>
 
-   <> 
-   
+        <td className="mx-5">
+          {/* <button style={{ backgroundColor:'#EF5E24', border:0}} onClick={() => handleDelete(_id)}> <i class="fas fa-dolly"></i> Shipping</button> */}
+          <button
+            style={{ backgroundColor: "#EF5E24", border: 0 }}
+            onClick={() => handleDelete(_id)}
+          >
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
 
-<tr className="text-white"style={{margin:20}}>
-
-
-<td className="text-white mx-5">{title}</td>
-
-<td className="text-white mx-5">{valueDate}</td>
-
-
-<td className="mx-5">
-  {/* <button style={{ backgroundColor:'#EF5E24', border:0}} onClick={() => handleDelete(_id)}> <i class="fas fa-dolly"></i> Shipping</button> */}
-  <button
-    style={{ backgroundColor: "#EF5E24", border: 0 }}
-    onClick={() => handleDelete(_id)}
-  >
-    <i class="fas fa-trash-alt"></i> Delete
-  </button>
-
-
-  <button
-    style={{ backgroundColor: "#EF5E24", border: 0 }}
-    onClick={() => handleUpdate(_id)}
-  >
-   <i class="fas fa-pencil-alt"></i> Udate 
-  </button>
-</td>
-</tr>
-   </>
-     
+          <button
+            style={{ backgroundColor: "#EF5E24", border: 0, marginLeft:6 }}
+            onClick={() => handleUpdate(_id)}
+          >
+            <i class="fas fa-pencil-alt"></i> Udate
+          </button>
+        </td>
+      </tr>
+    </>
   );
 };
 

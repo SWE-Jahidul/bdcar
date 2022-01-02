@@ -14,6 +14,9 @@ const ManageProduct = () => {
       });
   }, []);
 
+
+  console.log("i have contain All procust " , product);
+
   return (
     <div>
       <h1 className="text-white">Manage Product</h1>
