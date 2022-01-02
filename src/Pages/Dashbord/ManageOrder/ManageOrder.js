@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import OrderDisplay from './OrderDisplay/OrderDisplay';
-
+import useAuth from '../../../hooks/useAuth'
 const ManageOrder = () => {
-    const [order, setOrder] = useState();
+    const [order, setOrder] = useState([]);
+    const {user } = useAuth();
     useEffect(() => {
-        fetch('https://shrouded-harbor-84354.herokuapp.com/orders')
+        fetch('http://localhost:5000/orders',{
+            headers : {
+                'authorization' : `Bearer ${sessionStorage.getItem('idToken')}`
+            }
+        })
+
             .then(res => res.json())
             .then(data => setOrder(data));
     }, []);

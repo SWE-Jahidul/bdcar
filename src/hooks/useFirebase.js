@@ -7,7 +7,8 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-  updateProfile
+  getIdToken,
+  updateProfile,
 } from "firebase/auth";
 
 initializeFirebase();
@@ -23,7 +24,7 @@ const useFirebase = () => {
 
   const auth = getAuth();
 
-  const registerUser = (email, password , name, history ) => {
+  const registerUser = (email, password, name, history) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -31,24 +32,23 @@ const useFirebase = () => {
         // const destination = location?.state?.from || '/';
         // history.replace(destination);
         setAuthError("");
-       
+
         const newUser = { email, displayName: name };
         setuser(newUser);
-        saveUser(email, name)
+        saveUser(email, name);
         updateProfile(auth.currentUser, {
           displayName: name,
-        }).then(() => {
-          // Profile updated!
-          // ...
-        }).catch((error) => {
-          // An error occurred
-          // ...
-        });
-
-
+        })
+          .then(() => {
+            // Profile updated!
+            // ...
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
       })
       .catch((error) => {
-        
         setAuthError(error.message);
 
         // ..
@@ -56,13 +56,13 @@ const useFirebase = () => {
       .finally(() => setLoading(false));
   };
 
-  const loginUser = (email, password , location , history) => {
+  const loginUser = (email, password, location, history) => {
     setLoading(true);
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const destination = location?.state?.from || '/';
+        const destination = location?.state?.from || "/";
         history.replace(destination);
         setAuthError(""); // ...
       })
@@ -70,14 +70,13 @@ const useFirebase = () => {
         setAuthError(error.message);
       })
       .finally(() => setLoading(false));
-    };
+  };
 
-      useEffect(() => {
-        fetch(`https://shrouded-harbor-84354.herokuapp.com/users/${user.email}`)
-          .then(res => res.json())
-          .then(data => setAdmin(data.admin))
-      }, [user.email]);
-
+  useEffect(() => {
+    fetch(`https://shrouded-harbor-84354.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
 
   const logOut = () => {
     signOut(auth)
@@ -94,6 +93,9 @@ const useFirebase = () => {
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (user) => {
       if (user) {
+        getIdToken(user)
+        .then(idToken => sessionStorage.setItem('idToken' ,idToken));
+      
         setuser(user);
       } else {
         setuser({});
@@ -106,15 +108,14 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName) => {
     const user = { email, displayName };
-    fetch('https://shrouded-harbor-84354.herokuapp.com/users', {
-      method: 'POST',
+    fetch("https://shrouded-harbor-84354.herokuapp.com/users", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(user)
-    })
-      .then()
-  }
+      body: JSON.stringify(user),
+    }).then();
+  };
 
   return {
     user,

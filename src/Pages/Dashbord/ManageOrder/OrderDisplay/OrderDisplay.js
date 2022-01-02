@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const OrderDisplay = (props) => {
-    const [order, setOrder] = useState();
+  const [order, setOrder] = useState();
 
   const { _id, title, name, email, phone, address, status } = props.iteam;
 
@@ -43,8 +43,19 @@ const OrderDisplay = (props) => {
       <td className="text-white">{address}</td>
       <td className="text-white">{getStatus(status)}</td>
       <td>
-        <button style={{ backgroundColor:'#EF5E24', border:0}} onClick={() => handleDelete(_id)}> <i class="fas fa-dolly"></i> Shipping</button>
-        <button  style={{ backgroundColor:'#EF5E24',  border:0}} onClick={() => handleDelete(_id)}><i class="fas fa-trash-alt"></i> Delete</button>
+        <button
+          style={{ backgroundColor: "#EF5E24", border: 0 }}
+          onClick={() => handleDelete(_id)}
+        >
+          {" "}
+          <i class="fas fa-dolly"></i> Shipping
+        </button>
+        <button
+          style={{ backgroundColor: "#EF5E24", border: 0 }}
+          onClick={() => handleDelete(_id)}
+        >
+          <i class="fas fa-trash-alt"></i> Delete
+        </button>
       </td>
     </tr>
   );
